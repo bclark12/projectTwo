@@ -3,7 +3,7 @@ const app = express()
 const methodOverride = require('method-override')
 const hbs = require('hbs')
 
-const { billsRouter } = require('./controllers/bills.js')
+const { Router } = require('./controllers/controller.js')
 
 app.use(express.urlencoded())
 
@@ -15,7 +15,7 @@ app.use(express.static(__dirname+"/public"))
 
 app.set('view engine', 'hbs')
 
-app.use('/', billsRouter)
+app.use('/main', Router)
 
 const PORT = process.env.PORT || 2000
 
