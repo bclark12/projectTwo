@@ -4,6 +4,7 @@ const methodOverride = require('method-override')
 const hbs = require('hbs')
 
 const { mainRouter } = require('./controllers/main.js')
+const { statesRouter } = require('./controllers/states.js')
 
 app.use(express.urlencoded())
 
@@ -16,6 +17,7 @@ app.use(express.static(__dirname+"/public"))
 app.set('view engine', 'hbs')
 
 app.use('/main', mainRouter)
+app.use('/main/states', statesRouter)
 
 const PORT = process.env.PORT || 2000
 
