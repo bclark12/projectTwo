@@ -1,4 +1,24 @@
 body, html {   
-    background:  purple;
+    background:  green;
     text-align: center;
+}
+.container {
+    width: 700px;
+    border: 2px black solid;
+    display: inline-block;
+
+}
+.table {
+    display: flex;
+    justify-content: space-evenly;   
+    border-spacing: 30px 10px;
+}
+#stateHeader {
+    padding-right: 10px;
+}
+#capitalHeader {
+    padding-right: 15px;
+}
+#educationRank {
+    padding-left: 10px;
 }

@@ -1,1 +1,20 @@
-<h1>12</h1>
+<div class="container">
+<table class="table">
+  <tr>
+    <th id="stateHeader">State</th>
+    <th id="capitalHeader">Capital</th> 
+    <th>Population</th>
+    <th>Higher Education Rank</th>
+  </tr>
+  {{#each statesInDB}}
+  <tr>
+    <td>{{state}}</td>
+    <td>{{capital}}</td>
+    <td>{{population}}</td>
+    <td id="educationRank">{{higherEducationRank}}&nbsp;&nbsp;<a href="/schools/{{_id}}">See {{state}} Colleges</a></td>
+    <td><a href="#">Edit State</a></td>
+  </tr>
+  {{/each}}
+</table>
+</div>
+

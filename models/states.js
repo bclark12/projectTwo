@@ -2,7 +2,7 @@ const mongoose = require('./connection.js')
 
 const StateSchema = mongoose.Schema(
     {
-        states: String,
+        state: String,
         capital: String,
         population: Number,
         higherEducationRank: Number
