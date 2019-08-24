@@ -1,0 +1,10 @@
+<h1>{{stateInDB.state}} Schools</h1>
+<ul>
+    {{#each schoolsInDB}}
+        <li>
+            {{name}}
+        </li>
+    {{/each}}
+</ul>
+<a href="/schools/addSchool/{{stateInDB._id}}">Add New School</a>
+
