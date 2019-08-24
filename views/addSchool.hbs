@@ -1,8 +1,12 @@
 <h1>add school</h1>
 <h1>{{_id}}</h1>
-<form method="POST" action="/schools/{{_id}}">
+<h1>{{stateInDB.state}}</h1>
+<form method="POST" action="/schools/{{stateInDB.state}}/{{_id}}">
     <label for="name">College Name</label>
     <input type="text" name="name"/>
+
+    <label for="state">State</label>
+    <input type="text" name="state"/>
 
     <label for="students">Students</label>
     <input type="number" name="students"/>

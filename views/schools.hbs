@@ -1,8 +1,12 @@
 <h1>{{stateInDB.state}} Schools</h1>
+<p>{{schoolsInDB}}
+</p>
+<p>{{matchingSchools.state}}</p>
 <ul>
     {{#each schoolsInDB}}
         <li>
             {{name}}
+            {{state}}
         </li>
     {{/each}}
 </ul>

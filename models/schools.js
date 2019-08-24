@@ -1,8 +1,8 @@
 const mongoose = require('./connection.js');
 
 const SchoolSchema = mongoose.Schema(
-    {
-        name: String,
+    {   name: String,
+        state: String,
         students: Number,
         mascot: String,
         athleticsRank: Number,
@@ -17,6 +17,10 @@ const getSchools = () => {
 
 const getSchool = (id) => {
     return SchoolCollection.findById(id)
+}
+///////
+const getSchoolsByState = (state) => {
+    return SchoolCollection.find({state: state})
 }
 
 const addSchool = (newSchool) => {
@@ -38,6 +42,7 @@ const deleteNoNameSchools = () => {
 module.exports = {
     getSchools,
     getSchool,
+    getSchoolsByState,
     addSchool,
     updateSchool,
     deleteSchool,
