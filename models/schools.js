@@ -6,6 +6,7 @@ const SchoolSchema = mongoose.Schema(
         students: Number,
         mascot: String,
         athleticsRank: Number,
+        stateId: String,
     }
 );
 

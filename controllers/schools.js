@@ -12,17 +12,22 @@ statesApi.getStates().then(states => {
         schoolsRouter.get('/' + states[i].state +'/:stateId', (req, res) => {
             statesApi.getState(req.params.stateId).then(stateInDB => {               
                 schoolsApi.getSchools().then(schoolsInDB => {
-                    console.log(schoolsInDB[9].state)
+                    console.log(schoolsInDB[14].stateId)
                     console.log(schoolsInDB.length)  //schoolsInDB is an array
-                    // for (j = 0; j < schoolsInDB.length; j++) {
-                    // if (schoolsInDB[j].state == states[i].state) {
-
-                    // }
-                    // }
-                    //schoolsApi.getSchool()
-                    //schoolsApi.getSchoolsByState(states[i]).then(matchingSchools => {
+                    //loop here  
+                    for (j = 0; j < schoolsInDB.length; j++) {
+                        console.log(j)
+                        if (schoolsInDB[j].stateId == req.params.stateId) {
+                            console.log(schoolsInDB[j].name)
+                        }
+                    }
+                    statesApi.getStates().then(states => {
+                        console.log(states[0].state)
+                                                               
                         res.render('schools', {schoolsInDB, stateInDB, _id: req.params.stateId})
-                    //})
+                    
+                  
+                    })
                 })
             })
         })
