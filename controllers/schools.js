@@ -64,13 +64,13 @@ schoolsRouter.get('/addSchool/:stateId', (req, res) => {
         res.render('addSchool', {stateInDB, _id: req.params.stateId})
     })
 })
-//will post to specific state
+
 statesApi.getStates().then(states => {
     for (i = 0; i < states.length; i++) {
         //schoolsRouter.post('/:stateId', (req, res) => {
         schoolsRouter.post('/:stateId', (req, res) => {
             schoolsApi.addSchool(req.body).then(() => {
-                res.send('worked')
+                res.redirect('/schools/' + req.params.stateId)
             })
         })
     }
