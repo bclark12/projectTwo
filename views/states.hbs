@@ -11,10 +11,16 @@
     <td>{{state}}</td>
     <td>{{capital}}</td>
     <td>{{population}}</td>
-    <td id="educationRank">{{higherEducationRank}}&nbsp;&nbsp;<a href="/schools/{{_id}}">See {{state}} Colleges</a></td>
-    <td><a href="#">Edit State</a></td>
+    <td id="educationRank">{{higherEducationRank}}&nbsp;&nbsp;<a href="/schools/{{_id}}">
+    See {{state}} Colleges</a>
+    </td>
+    <td><a href="/states/{{_id}}">Edit {{state}}</a></td>
   </tr>
   {{/each}}
 </table>
 </div>
+<form method="POST" action="/states/?_method=DELETE">
+    <input type="submit" value="Delete Noname States"/>
+</form>
+
 

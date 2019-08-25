@@ -27,7 +27,7 @@ const deleteState = (id) => {
     return StateCollection.findByIdAndDelete(id)
 }
 const deleteNoNameStates = () => {
-    return StateCollection.deleteMany({ name: ''})
+    return StateCollection.deleteMany({ state: '' })
 }
 
 module.exports = {

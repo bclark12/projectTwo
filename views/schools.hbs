@@ -1,14 +1,14 @@
 <h1>{{stateInDB.state}} Schools</h1>
 
 <p></p>
-<ul>
+{{!-- <ul>
     {{#each schoolsInDB}}
         <li>
             {{name}}
             {{state}}
         </li>
     {{/each}}
-</ul>
+</ul> --}}
 <a href="/schools/addSchool/{{stateInDB._id}}">Add New School</a>
 <ul>
     {{#each matchingSchools}}

@@ -37,7 +37,7 @@ const deleteSchool = (id) => {
 }
 
 const deleteNoNameSchools = () => {
-    return SchoolCollection.deleteMany({name: ''})
+    return SchoolCollection.deleteMany({ name: '' })
 }
 
 module.exports = {

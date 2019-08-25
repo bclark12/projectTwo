@@ -1,0 +1,21 @@
+<h1>Edit {{singleState.state}}</h1>
+
+<form method="POST" action="/states/{{singleState._id}}?_method=PUT">
+    <label for="state">State</label>
+    <input type="text" name="state" value="{{singleState.state}}"/>
+
+    <label for="capital">Capital City</label>
+    <input type="text" name="capital" value="{{singleState.capital}}"/>
+
+    <label for="population">Population</label>
+    <input type="number" name="population" value="{{singleState.population}}"/>
+
+    <label for="higherEductionRank">Higher Education Rank</label>
+    <input type="number" name="higherEducationRank" value="{{singleState.higherEducationRank}}"/>
+
+    <input type="submit" value="Update State"/>
+</form>
+
+<form method="POST" action="/states/{{singleState._id}}?_method=DELETE">
+    <input type="submit" value="Delete State"/>
+</form>
