@@ -12,6 +12,9 @@
 </ul>
 <a href="/schools/addSchool/{{stateInDB._id}}">Add New School</a>
 <ul>
-    
+    {{#each matchingSchools}}
+        <li>{{name}}</li>
+    {{/each}}
+
 </ul>
 
