@@ -7,9 +7,7 @@ console.log(statesApi.getStates().then(states => {
     console.log(states[0].state)
     })
 )
-statesApi.getStates().then(states => {
-    for (i = 0; i < states.length; i++) {
-        schoolsRouter.get('/' + states[i].state +'/:stateId', (req, res) => {
+        schoolsRouter.get('/:stateId', (req, res) => {
             statesApi.getState(req.params.stateId).then(stateInDB => {               
                 schoolsApi.getSchools().then(schoolsInDB => {
                     console.log(schoolsInDB[14].stateId)
@@ -31,13 +29,10 @@ statesApi.getStates().then(states => {
                 })
             })
         })
-    }
-})
+    //}
+//})
 
-// console.log(statesApi.getStates().then(states => {
-//     console.log(states[0].state)
-//     })
-// )
+
 
 schoolsRouter.get('/addSchool/:stateId', (req, res) => {
     statesApi.getState(req.params.stateId).then(stateInDB => {

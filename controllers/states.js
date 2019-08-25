@@ -1,5 +1,6 @@
 const express = require('express')
 const statesApi = require('../models/states.js')
+const schoolsApi = require('../models/schools.js')
 const statesRouter = express.Router()
 //dont have to have functions in the handlers
 //can direct to a hbs with only links
