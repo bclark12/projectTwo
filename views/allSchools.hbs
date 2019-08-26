@@ -1,3 +1,8 @@
+<nav>
+    <a href="/main">Home</a>
+    <a href="/states">View All States</a>
+    <a href="/schools">View All Schools</a>
+</nav>
 <h1>All Schools</h1>
 <a href="/schools/chooseState">Add School</a>
 
@@ -9,6 +14,7 @@
         </li>
     {{/each}}
 </ul>
+<h2><a href="/schools/chooseStateForSchools">See Schools By State</a></h2>
 <form method="POST" action="/schools/?_method=DELETE">
     <input type="submit" value="Delete Noname Schools"/>
 </form>

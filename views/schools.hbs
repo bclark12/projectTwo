@@ -1,23 +1,21 @@
+<nav>
+    <a href="/main">Home</a>
+    <a href="/states">View All States</a>
+    <a href="/schools">View All Schools</a>
+</nav>
 <h1>{{stateInDB.state}} Schools</h1>
 
-<p>{{matchingSchools.length}}</p>
-{{!-- <ul>
-    {{#each schoolsInDB}}
-        <li>
-            {{name}}
-            {{state}}
-        </li>
-    {{/each}}
-</ul> --}}
-<a href="/schools/addSchool/{{stateInDB._id}}">Add New School</a>
 <ul>
     {{#each matchingSchools}}
-        <li>{{name}}
-        <a href="/schools/editSchool/{{_id}}">Edit School</a>
+        <li>
+            <a href="/schools/editSchool/{{_id}}">Edit School</a>
+            {{name}}
+            {{teams}}
+            <a href="/teams/{{_id}}">See {{name}} Teams</a>        
         </li>
     {{/each}}
-
 </ul>
+<a href="/schools/addSchool/{{stateInDB._id}}">Add New School</a>
 <form method="POST" action="/schools/?_method=DELETE">
     <input type="submit" value="Delete Noname Schools"/>
 </form>

@@ -3,7 +3,7 @@ body, html {
     text-align: center;
 }
 .container {
-    width: 750px;
+    width: 800px;
     border: 2px black solid;
     display: inline-block;
 

@@ -6,6 +6,7 @@ const hbs = require('hbs')
 const { mainRouter } = require('./controllers/main.js')
 const { statesRouter } = require('./controllers/states.js')
 const { schoolsRouter } = require('./controllers/schools.js')
+const { teamsRouter } = require('./controllers/teams.js')
 
 app.use(express.urlencoded())
 
@@ -20,6 +21,7 @@ app.set('view engine', 'hbs')
 app.use('/main', mainRouter)
 app.use('/states', statesRouter)
 app.use('/schools', schoolsRouter)
+app.use('/teams', teamsRouter)
 
 const PORT = process.env.PORT || 2000
 

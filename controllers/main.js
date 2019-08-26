@@ -6,6 +6,9 @@ const mainRouter = express.Router()
 mainRouter.get('/', (req, res) => {
     res.render('main')
 })
+mainRouter.get('/redirect', (req, res) => {
+    res.render('redirect')
+})
 
 module.exports = {
     mainRouter

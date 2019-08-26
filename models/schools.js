@@ -4,7 +4,7 @@ const SchoolSchema = mongoose.Schema(
     {   name: String,
         students: Number,
         mascot: String,
-        athleticsRank: Number,
+        teams: Number,
         stateId: String,
     }
 );

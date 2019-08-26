@@ -8,26 +8,14 @@ statesRouter.get('/', (req, res) => {
     statesApi.getStates().then(statesInDB => {
         schoolsApi.getSchools().then(schoolsInDB => {
             for (i = 0; i < statesInDB.length; i++) {
-                //console.log(i)
-                //console.log(statesInDB[0]._id)
-                //console.log(schoolsInDB[1].stateId)
                 const matchingSchools = []
-                for (j = 0; j < schoolsInDB.length; j++) {
-                    //console.log('this is j ' + j)
-                    //console.log(schoolsInDB[j].stateId)                   
+                for (j = 0; j < schoolsInDB.length; j++) {                   
                    if (statesInDB[i]._id == schoolsInDB[j].stateId) {
-                       //console.log(schoolsInDB[j])
                        matchingSchools.push(schoolsInDB[j])
-                       console.log(matchingSchools)
-                       console.log(i)
-                   }
-                    
+                       statesInDB[i].schools = matchingSchools.length                 
+                    }                    
                 }
-
             }
-
-        
-
             res.render('states', {statesInDB});
         })
     })
@@ -45,25 +33,25 @@ statesRouter.get('/:stateId', (req, res) => {
 
 statesRouter.post('/', (req,res) => {
     statesApi.addState(req.body).then(() => {
-        res.redirect('/states')
+        res.redirect('/main/redirect')
     })
 })
 
 statesRouter.put('/:stateId', (req, res) => {
     statesApi.updateState(req.params.stateId, req.body).then(() => {
-        res.redirect('/states')
+        res.redirect('/main/redirect')
     })
 })
 
 statesRouter.delete('/:stateId', (req, res) => {
     statesApi.deleteState(req.params.stateId).then(() => {
-        res.redirect('/states')
+        res.redirect('/main/redirect')
     })
 })
 statesRouter.delete('/', (req, res) => {
     statesApi.deleteNoNameStates().then(() => {
         console.log('Button Pressed')
-        res.redirect('/states')
+        res.redirect('/main/redirect')
     })
 })
 

@@ -9,7 +9,8 @@ console.log(statesApi.getStates().then(states => {
 )
 
 schoolsRouter.get('/', (req, res) => {               
-    schoolsApi.getSchools().then(schoolsInDB => {                                                                                
+    schoolsApi.getSchools().then(schoolsInDB => {
+        console.log(schoolsInDB)
         res.render('allSchools', {schoolsInDB})                                                                          
     })
 })
@@ -23,6 +24,12 @@ schoolsRouter.get('/editSchool/:schoolId' ,(req, res) => {
 schoolsRouter.get('/chooseState', (req, res) => {               
     statesApi.getStates().then(statesInDB => {                                                                                
         res.render('chooseState', {statesInDB})                                                                          
+    })
+})
+
+schoolsRouter.get('/chooseStateForSchools', (req, res) => {               
+    statesApi.getStates().then(statesInDB => {                                                                                
+        res.render('chooseStateForSchools', {statesInDB})                                                                          
     })
 })
 
@@ -53,25 +60,25 @@ schoolsRouter.get('/addSchool/:stateId', (req, res) => {
 
 schoolsRouter.post('/:stateId', (req, res) => {
     schoolsApi.addSchool(req.body).then(() => {
-        res.redirect('/schools/' + req.params.stateId)
+        res.redirect('/main/redirect')
     })
 })
 
 schoolsRouter.put('/editSchool/:schoolId', (req, res) => {
     schoolsApi.updateSchool(req.params.schoolId, req.body).then(() => {
-        res.redirect('/schools')
+        res.redirect('/main/redirect')
     })
 })
 
 schoolsRouter.delete('/editSchool/:schoolId', (req, res) => {
     schoolsApi.deleteSchool(req.params.schoolId).then(() => {
-        res.redirect('/schools')
+        res.redirect('/main/redirect')
     })
 })
 
 schoolsRouter.delete('/', (req, res) => {
     schoolsApi.deleteNoNameSchools().then(() => {
-        res.redirect('/schools')
+        res.redirect('/main/redirect')
     })
 })
 

@@ -5,7 +5,8 @@ const StateSchema = mongoose.Schema(
         state: String,
         capital: String,
         population: Number,
-        higherEducationRank: Number
+        higherEducationRank: Number,
+        schools: Number
     }
 );
 
