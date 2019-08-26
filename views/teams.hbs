@@ -1,11 +1,14 @@
 <h1>{{singleSchool.name}} teams page</h1>
 <ul>
-    {{#each teamsInDB}}
+    {{#each matchingTeams}}
     <li>
         {{sport}}
+        <a href="/teams/editTeam/{{_id}}">Edit Team</a>
     </li>
     
     {{/each}}
-    <li></li>
 </ul>
-<a href="/teams/addTeam/{{singleSchool._id}}">New Link</a>
+<form method="POST" action="/teams/{{singleSchool._id}}?_method=DELETE">
+    <input type="submit" value="Delete Noname Teams"/>
+</form>
+<a href="/teams/addTeam/{{singleSchool._id}}">Add New Team</a>

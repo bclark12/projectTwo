@@ -1,6 +1,7 @@
 const express = require('express')
 const schoolsApi = require('../models/schools.js')
 const statesApi = require('../models/states.js')
+const teamsApi = require('../models/teams')
 const schoolsRouter = express.Router()
 
 console.log(statesApi.getStates().then(states => {
@@ -46,8 +47,20 @@ schoolsRouter.get('/:stateId', (req, res) => {
                     console.log(schoolsInDB[j].name)
                     matchingSchools.push(schoolsInDB[j])
                 }                    
-            }                                                                                   
-            res.render('schools', {schoolsInDB, stateInDB, matchingSchools, _id: req.params.stateId})                                                                          
+            }
+            teamsApi.getTeams().then(teamsInDB => {
+                for (i = 0; i < schoolsInDB.length; i++) {
+                    const matchingTeams = []
+                    for (j = 0; j < teamsInDB.length; j++) {                   
+                        if (schoolsInDB[i]._id == teamsInDB[j].schoolId) {
+                            console.log(i)
+                            matchingTeams.push(teamsInDB[j])
+                            schoolsInDB[i].teams = matchingTeams.length                
+                        }                    
+                    }
+                }                                                                                   
+                res.render('schools', {schoolsInDB, stateInDB, matchingSchools, _id: req.params.stateId}) 
+            })                                                                         
         })
     })
 })
