@@ -1,1 +1,11 @@
-<h1>teams page</h1>
+<h1>{{singleSchool.name}} teams page</h1>
+<ul>
+    {{#each teamsInDB}}
+    <li>
+        {{sport}}
+    </li>
+    
+    {{/each}}
+    <li></li>
+</ul>
+<a href="/teams/addTeam/{{singleSchool._id}}">New Link</a>
