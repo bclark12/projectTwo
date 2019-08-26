@@ -8,15 +8,20 @@ statesRouter.get('/', (req, res) => {
     statesApi.getStates().then(statesInDB => {
         schoolsApi.getSchools().then(schoolsInDB => {
             for (i = 0; i < statesInDB.length; i++) {
-                console.log(i)
-                console.log(statesInDB[0]._id)
+                //console.log(i)
+                //console.log(statesInDB[0]._id)
+                //console.log(schoolsInDB[1].stateId)
                 const matchingSchools = []
                 for (j = 0; j < schoolsInDB.length; j++) {
-                    console.log(j)
-                    console.log(schoolsInDB[j].stateId)
+                    //console.log('this is j ' + j)
+                    //console.log(schoolsInDB[j].stateId)                   
                    if (statesInDB[i]._id == schoolsInDB[j].stateId) {
-                       //console.log(statesInDB[i])
-                   } 
+                       //console.log(schoolsInDB[j])
+                       matchingSchools.push(schoolsInDB[j])
+                       console.log(matchingSchools)
+                       console.log(i)
+                   }
+                    
                 }
 
             }

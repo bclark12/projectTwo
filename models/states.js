@@ -2,7 +2,6 @@ const mongoose = require('./connection.js')
 
 const StateSchema = mongoose.Schema(
     {
-        _id: String,
         state: String,
         capital: String,
         population: Number,
