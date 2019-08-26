@@ -2,7 +2,6 @@ const mongoose = require('./connection.js');
 
 const SchoolSchema = mongoose.Schema(
     {   name: String,
-        state: String,
         students: Number,
         mascot: String,
         athleticsRank: Number,

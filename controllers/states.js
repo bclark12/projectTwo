@@ -6,7 +6,25 @@ const statesRouter = express.Router()
 //can direct to a hbs with only links
 statesRouter.get('/', (req, res) => {
     statesApi.getStates().then(statesInDB => {
-    res.render('states', {statesInDB});
+        schoolsApi.getSchools().then(schoolsInDB => {
+            for (i = 0; i < statesInDB.length; i++) {
+                console.log(i)
+                console.log(statesInDB[0]._id)
+                const matchingSchools = []
+                for (j = 0; j < schoolsInDB.length; j++) {
+                    console.log(j)
+                    console.log(schoolsInDB[j].stateId)
+                   if (statesInDB[i]._id == schoolsInDB[j].stateId) {
+                       //console.log(statesInDB[i])
+                   } 
+                }
+
+            }
+
+        
+
+            res.render('states', {statesInDB});
+        })
     })
 })
 

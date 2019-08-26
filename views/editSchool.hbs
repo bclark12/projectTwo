@@ -1,0 +1,20 @@
+<h1>Edit School</h1>
+<h1>{{singleSchool.name}}</h1>
+<form method="POST" action="/schools/editSchool/{{singleSchool._id}}?_method=PUT">
+    <label for="name">College Name</label>
+    <input type="text" name="name" value="{{singleSchool.name}}"/>
+
+    <label for="students">Students</label>
+    <input type="number" name="students" value="{{singleSchool.students}}"/>
+
+    <label for="mascot">Mascot</label>
+    <input type="text" name="mascot" value="{{singleSchool.mascot}}"/>
+
+    <label for="athleticsRank">Athletics Rank</label>
+    <input type="number" name="athleticsRank" value="{{singleSchool.athleticsRank}}"/>
+
+    <input type="submit" value="Edit School"/>
+</form>
+<form method="POST" action="/schools/editSchool/{{singleSchool._id}}?_method=DELETE">
+    <input type="submit" value="Delete School"/>
+</form>

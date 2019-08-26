@@ -1,0 +1,14 @@
+<h1>All Schools</h1>
+<a href="/schools/chooseState">Add School</a>
+
+<ul>
+    {{#each schoolsInDB}}
+        <li>
+            {{name}}
+            <a href="/schools/editSchool/{{_id}}">Edit School</a>
+        </li>
+    {{/each}}
+</ul>
+<form method="POST" action="/schools/?_method=DELETE">
+    <input type="submit" value="Delete Noname Schools"/>
+</form>

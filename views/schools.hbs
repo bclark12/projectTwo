@@ -1,6 +1,6 @@
 <h1>{{stateInDB.state}} Schools</h1>
 
-<p></p>
+<p>{{matchingSchools.length}}</p>
 {{!-- <ul>
     {{#each schoolsInDB}}
         <li>
@@ -12,8 +12,13 @@
 <a href="/schools/addSchool/{{stateInDB._id}}">Add New School</a>
 <ul>
     {{#each matchingSchools}}
-        <li>{{name}}</li>
+        <li>{{name}}
+        <a href="/schools/editSchool/{{_id}}">Edit School</a>
+        </li>
     {{/each}}
 
 </ul>
+<form method="POST" action="/schools/?_method=DELETE">
+    <input type="submit" value="Delete Noname Schools"/>
+</form>
 

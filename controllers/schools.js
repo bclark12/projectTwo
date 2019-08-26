@@ -7,10 +7,29 @@ console.log(statesApi.getStates().then(states => {
     console.log(states[0].state)
     })
 )
+
+schoolsRouter.get('/', (req, res) => {               
+    schoolsApi.getSchools().then(schoolsInDB => {                                                                                
+        res.render('allSchools', {schoolsInDB})                                                                          
+    })
+})
+
+schoolsRouter.get('/editSchool/:schoolId' ,(req, res) => {
+    schoolsApi.getSchool(req.params.schoolId).then(singleSchool => {
+    res.render('editSchool', {singleSchool})
+    })
+})
+
+schoolsRouter.get('/chooseState', (req, res) => {               
+    statesApi.getStates().then(statesInDB => {                                                                                
+        res.render('chooseState', {statesInDB})                                                                          
+    })
+})
+
 schoolsRouter.get('/:stateId', (req, res) => {
     statesApi.getState(req.params.stateId).then(stateInDB => {               
         schoolsApi.getSchools().then(schoolsInDB => {
-            console.log(schoolsInDB[14].stateId)
+            //console.log(schoolsInDB[14])
             console.log(schoolsInDB)  //schoolsInDB is an array
             //loop here  
             const matchingSchools = []
@@ -26,8 +45,6 @@ schoolsRouter.get('/:stateId', (req, res) => {
     })
 })
     
-
-
 schoolsRouter.get('/addSchool/:stateId', (req, res) => {
     statesApi.getState(req.params.stateId).then(stateInDB => {
         res.render('addSchool', {stateInDB, _id: req.params.stateId})
@@ -39,6 +56,26 @@ schoolsRouter.post('/:stateId', (req, res) => {
         res.redirect('/schools/' + req.params.stateId)
     })
 })
+
+schoolsRouter.put('/editSchool/:schoolId', (req, res) => {
+    schoolsApi.updateSchool(req.params.schoolId, req.body).then(() => {
+        res.redirect('/schools')
+    })
+})
+
+schoolsRouter.delete('/editSchool/:schoolId', (req, res) => {
+    schoolsApi.deleteSchool(req.params.schoolId).then(() => {
+        res.redirect('/schools')
+    })
+})
+
+schoolsRouter.delete('/', (req, res) => {
+    schoolsApi.deleteNoNameSchools().then(() => {
+        res.redirect('/schools')
+    })
+})
+
+
 
 module.exports = {
     schoolsRouter
