@@ -8,8 +8,7 @@
     <a href="/schools/chooseStateForSchools">See Schools By State</a>
     <a href="/teams/chooseStateForTeams">Choose Team By state</a>
 </nav>
-<h1>{{singleSchool.name}} teams page</h1>
-
+<h1>All Teams</h1>
 <table class="table">
     <tr>
         <th></th>
@@ -18,7 +17,7 @@
         <th>National Rank</th>
         <th>Coach</th>
     </tr>
-    {{#each matchingTeams}}
+    {{#each teamsInDB}}
     <tr>
         <td><a href="/teams/editTeam/{{_id}}">Edit Team</a></td>
         <td>{{sport}}</td>
@@ -28,9 +27,10 @@
     </tr>
     {{/each}}
 </table>
-
-
-<a href="/teams/addTeam/{{singleSchool._id}}">Add New Team</a>
-<form method="POST" action="/teams/{{singleSchool._id}}?_method=DELETE">
+<ul>
+<li><a href="/teams/chooseStateForTeams">Choose Team By state</a></li>
+<li><a href="/teams/chooseStateForTeamAdd">Add New Team</a></li>
+</ul>
+<form method="POST" action="/teams/?_method=DELETE">
     <input type="submit" value="Delete Noname Teams"/>
 </form>

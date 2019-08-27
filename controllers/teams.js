@@ -6,21 +6,59 @@ statesApi = require('../models/states')
 
 const teamsRouter = express.Router()
 
+teamsRouter.get('/', (req, res) => {
+    teamsApi.getTeams().then(teamsInDB => {   
+        res.render('allTeams', {teamsInDB})
+    })
+})
+teamsRouter.get('/chooseStateForTeams', (req, res) => {
+    statesApi.getStates().then(statesInDB => {
+        res.render('chooseStateForTeams', {statesInDB})
+    })
+})
+
+teamsRouter.get('/chooseStateForTeamAdd', (req, res) => {
+    statesApi.getStates().then(statesInDB => {
+        res.render('chooseStateForTeamAdd', {statesInDB})
+    })
+})
 
 teamsRouter.get('/:schoolId', (req, res) => {
     teamsApi.getTeams().then(teamsInDB => { 
-        schoolsApi.getSchool(req.params.schoolId).then(singleSchool => {
-        console.log(teamsInDB)
+        schoolsApi.getSchool(req.params.schoolId).then(singleSchool => {        
         const matchingTeams = []
-        for (i = 0; i < teamsInDB.length; i++) {
-            console.log(i)
-            if (teamsInDB[i].schoolId == req.params.schoolId) {
-                console.log(teamsInDB[i].name)
+        for (i = 0; i < teamsInDB.length; i++) {            
+            if (teamsInDB[i].schoolId == req.params.schoolId) {                
                 matchingTeams.push(teamsInDB[i])
             }                    
         }     
-    res.render('teams', {teamsInDB, singleSchool, matchingTeams})
+        res.render('teams', {teamsInDB, singleSchool, matchingTeams})
         })
+    })
+})
+
+teamsRouter.get('/chooseSchoolForTeams/:stateId', (req, res) => {
+    schoolsApi.getSchools().then(schoolsInDB => {
+        const matchingSchools = []
+        for (j = 0; j < schoolsInDB.length; j++) {
+            if (schoolsInDB[j].stateId == req.params.stateId) {
+                matchingSchools.push(schoolsInDB[j])
+            }                    
+        }
+        statesApi.getState(req.params.stateId).then(singleState => {
+            res.render('chooseSchoolForTeams', {matchingSchools, singleState})
+        })
+    })
+})
+teamsRouter.get('/chooseSchoolForTeamAdd/:stateId', (req, res) => {
+    schoolsApi.getSchools().then(schoolsInDB => {
+        const matchingSchools = []
+        for (j = 0; j < schoolsInDB.length; j++) {
+            if (schoolsInDB[j].stateId == req.params.stateId) {
+                matchingSchools.push(schoolsInDB[j])
+            }                    
+        }
+        res.render('chooseSchoolForTeamAdd', {matchingSchools, schoolsInDB, stateId: req.params.stateId})
     })
 })
 
@@ -37,6 +75,8 @@ teamsRouter.get('/editTeam/:teamId', (req, res) => {
     res.render('editTeam', {singleTeam})
     })
 })
+
+
 
 teamsRouter.post('/:schoolId', (req, res) => {
     teamsApi.addTeam(req.body).then(() => {
@@ -55,17 +95,17 @@ teamsRouter.delete('/editTeam/:teamId', (req, res) => {
     })
 })
 
-teamsRouter.delete('/:teamId', (req, res) => {
+teamsRouter.delete('/', (req, res) => {
     teamsApi.deleteNoNameTeams().then(() => {
         res.redirect('/main/redirect')
     })
 })
 
-
-
-
-
-
+teamsRouter.delete('/:teamId', (req, res) => {
+    teamsApi.deleteNoNameTeams().then(() => {
+        res.redirect('/main/redirect')
+    })
+})
 
 module.exports = {
     teamsRouter

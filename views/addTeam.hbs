@@ -1,7 +1,17 @@
+<nav>
+    <a href="/main">Home</a>
+    <a href="/states">View All States</a>
+    <a href="/schools">View All Schools</a>
+    <a href="/teams">View All Teams</a>
+</nav>
+<nav>
+    <a href="/schools/chooseStateForSchools">See Schools By State</a>
+    <a href="/teams/chooseStateForTeams">Choose Team By state</a>
+</nav>
 <h1>Add {{singleSchool.name}} Team Page</h1>
 
 <form method="POST" action="/teams/{{singleSchool._id}}">
-    <label for="sport">Sport Name</label>
+    <label for="sport">Sport</label>
     <input type="text" name="sport"/>
 
     <label for="players">Players</label>

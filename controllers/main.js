@@ -8,6 +8,7 @@ mainRouter.get('/', (req, res) => {
 })
 mainRouter.get('/redirect', (req, res) => {
     res.render('redirect')
+    
 })
 
 module.exports = {

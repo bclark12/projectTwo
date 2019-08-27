@@ -1,3 +1,13 @@
+<nav>
+    <a href="/main">Home</a>
+    <a href="/states">View All States</a>
+    <a href="/schools">View All Schools</a>
+    <a href="/teams">View All Teams</a>
+</nav>
+<nav>
+    <a href="/schools/chooseStateForSchools">See Schools By State</a>
+    <a href="/teams/chooseStateForTeams">Choose Team By state</a>
+</nav>
 <h1>Edit Team Page</h1>
 <p>{{singleTeam.sport}}</p>
 <form method="POST" action="/teams/editTeam/{{singleTeam._id}}?_method=PUT">

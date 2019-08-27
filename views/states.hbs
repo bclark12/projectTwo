@@ -2,7 +2,13 @@
     <a href="/main">Home</a>
     <a href="/states">View All States</a>
     <a href="/schools">View All Schools</a>
+    <a href="/teams">View All Teams</a>
 </nav>
+<nav>
+    <a href="/schools/chooseStateForSchools">See Schools By State</a>
+    <a href="/teams/chooseStateForTeams">Choose Team By state</a>
+</nav>
+<h1>All States</h1>
 <div class="container">
 <table class="table">
   <tr>
@@ -29,7 +35,7 @@
 </table>
 </div>
 <ul>
-<a href="/schools/chooseState">Add New School</a>
+<a href="/states/addState">Add New State</a>
 </ul>
 <form method="POST" action="/states/?_method=DELETE">
     <input type="submit" value="Delete Noname States"/>

@@ -8,12 +8,10 @@
     <a href="/schools/chooseStateForSchools">See Schools By State</a>
     <a href="/teams/chooseStateForTeams">Choose Team By state</a>
 </nav>
-<h1>Choose State to add school to</h1>
+<h1>Choose State for team</h1>
 <ul>
     {{#each statesInDB}}
-        <li>
-            <a href="/schools/addSchool/{{_id}}">{{state}}</a>
-        </li>
+    <li><a href="/teams/chooseSchoolForTeams/{{_id}}">{{state}}</a></li>
     {{/each}}
 </ul>
 <a href="/states/addState">Add New State</a>

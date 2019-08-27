@@ -11,7 +11,6 @@ console.log(statesApi.getStates().then(states => {
 
 schoolsRouter.get('/', (req, res) => {               
     schoolsApi.getSchools().then(schoolsInDB => {
-        console.log(schoolsInDB)
         res.render('allSchools', {schoolsInDB})                                                                          
     })
 })
@@ -37,14 +36,9 @@ schoolsRouter.get('/chooseStateForSchools', (req, res) => {
 schoolsRouter.get('/:stateId', (req, res) => {
     statesApi.getState(req.params.stateId).then(stateInDB => {               
         schoolsApi.getSchools().then(schoolsInDB => {
-            //console.log(schoolsInDB[14])
-            console.log(schoolsInDB)  //schoolsInDB is an array
-            //loop here  
             const matchingSchools = []
             for (j = 0; j < schoolsInDB.length; j++) {
-                console.log(j)
                 if (schoolsInDB[j].stateId == req.params.stateId) {
-                    console.log(schoolsInDB[j].name)
                     matchingSchools.push(schoolsInDB[j])
                 }                    
             }
@@ -53,7 +47,6 @@ schoolsRouter.get('/:stateId', (req, res) => {
                     const matchingTeams = []
                     for (j = 0; j < teamsInDB.length; j++) {                   
                         if (schoolsInDB[i]._id == teamsInDB[j].schoolId) {
-                            console.log(i)
                             matchingTeams.push(teamsInDB[j])
                             schoolsInDB[i].teams = matchingTeams.length                
                         }                    
@@ -94,8 +87,6 @@ schoolsRouter.delete('/', (req, res) => {
         res.redirect('/main/redirect')
     })
 })
-
-
 
 module.exports = {
     schoolsRouter

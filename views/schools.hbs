@@ -2,19 +2,34 @@
     <a href="/main">Home</a>
     <a href="/states">View All States</a>
     <a href="/schools">View All Schools</a>
+    <a href="/teams">View All Teams</a>
+</nav>
+<nav>
+    <a href="/schools/chooseStateForSchools">See Schools By State</a>
+    <a href="/teams/chooseStateForTeams">Choose Team By state</a>
 </nav>
 <h1>{{stateInDB.state}} Schools</h1>
-
-<ul>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Students</th>
+        <th>mascot</th>
+        <th>teams</th>
+        <th></th>
+    </tr>
     {{#each matchingSchools}}
-        <li>
-            <a href="/schools/editSchool/{{_id}}">Edit School</a>
-            {{name}}
-            {{teams}}
-            <a href="/teams/{{_id}}">See {{name}} Teams</a>        
-        </li>
+    <tr>
+        <td><a href="/schools/editSchool/{{_id}}">Edit School</a></td>
+        <td>{{name}}</td>
+        <td>{{students}}</td>
+        <td>{{mascot}}</td>
+        <td>{{teams}}</td>
+        <td><a href="/teams/{{_id}}">See {{name}} Teams</a></td>
+    </tr>
     {{/each}}
-</ul>
+</table>
+
 <a href="/schools/addSchool/{{stateInDB._id}}">Add New School</a>
 <form method="POST" action="/schools/?_method=DELETE">
     <input type="submit" value="Delete Noname Schools"/>
