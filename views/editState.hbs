@@ -1,4 +1,3 @@
-<h1>Edit {{singleState.state}}</h1>
 <nav>
     <a href="/main">Home</a>
     <a href="/states">View All States</a>
@@ -9,6 +8,8 @@
     <a href="/schools/chooseStateForSchools">See Schools By State</a>
     <a href="/teams/chooseStateForTeams">Choose Team By state</a>
 </nav>
+<h4>Edit State</h4>
+<li>
 <form method="POST" action="/states/{{singleState._id}}?_method=PUT">
     <label for="state">State</label>
     <input type="text" name="state" value="{{singleState.state}}"/>
@@ -24,6 +25,7 @@
 
     <input type="submit" value="Update State"/>
 </form>
+</li>
 
 <form method="POST" action="/states/{{singleState._id}}?_method=DELETE">
     <input type="submit" value="Delete State"/>

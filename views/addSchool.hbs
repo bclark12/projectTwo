@@ -8,7 +8,8 @@
     <a href="/schools/chooseStateForSchools">See Schools By State</a>
     <a href="/teams/chooseStateForTeams">Choose Team By state</a>
 </nav>
-<h1>Add New {{stateInDB.state}} School</h1>
+<h4>Add New {{stateInDB.state}} School</h4>
+<li>
 <form method="POST" action="/schools/{{_id}}">
     <label for="name">College Name</label>
     <input type="text" name="name"/>
@@ -25,3 +26,4 @@
 
     <input type="submit" value="Add School"/>
 </form>
+</li>
