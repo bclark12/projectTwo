@@ -11,7 +11,18 @@ console.log(statesApi.getStates().then(states => {
 
 schoolsRouter.get('/', (req, res) => {               
     schoolsApi.getSchools().then(schoolsInDB => {
-        res.render('allSchools', {schoolsInDB})                                                                          
+        teamsApi.getTeams().then(teamsInDB => {
+            for (i = 0; i < schoolsInDB.length; i++) {
+                const matchingTeams = []
+                for (j = 0; j < teamsInDB.length; j++) {                   
+                    if (schoolsInDB[i]._id == teamsInDB[j].schoolId) {
+                        matchingTeams.push(teamsInDB[j])
+                        schoolsInDB[i].teams = matchingTeams.length                
+                    }                    
+                }
+            }
+            res.render('allSchools', {schoolsInDB})        
+        })
     })
 })
 

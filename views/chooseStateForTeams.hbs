@@ -1,4 +1,3 @@
-<h1>Choose State for team</h1>
 <nav>
     <a href="/main">Home</a>
     <a href="/states">View All States</a>
@@ -9,9 +8,12 @@
     <a href="/schools/chooseStateForSchools">See Schools By State</a>
     <a href="/teams/chooseStateForTeams">Choose Team By state</a>
 </nav>
-<ul>
+<h4>Which State is Your Team Located in?</h4>
+<table>
     {{#each statesInDB}}
-    <li><a href="/teams/chooseSchoolForTeams/{{_id}}">{{state}}</a></li>
+    <tr>
+        <td class="choose"><a href="/teams/chooseSchoolForTeams/{{_id}}">{{state}}</a></td>
+    </tr>
     {{/each}}
-</ul>
-<a href="/states/addState">Add New State</a>
+</table>
+<li><a href="/states/addState">Add New State</a></li>

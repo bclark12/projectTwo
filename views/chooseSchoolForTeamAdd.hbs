@@ -8,10 +8,14 @@
     <a href="/schools/chooseStateForSchools">See Schools By State</a>
     <a href="/teams/chooseStateForTeams">Choose Team By state</a>
 </nav>
-<h1>Choose School to Add Team</h1>
-<ul>
-    {{#each matchingSchools}}
-    <li><a href="/teams/addTeam/{{_id}}">{{name}}</a></li>
+<h4>What School Would You Like to Add a Team to?</h4>
+<table class="table">
+    {{#each matchingSchools}} 
+    <tr>  
+        <td class="choose"><a href="/teams/addTeam/{{_id}}">{{name}}</a></td>
+    </tr>
     {{/each}}
-</ul>
+</table>
+<li>
 <a href="/schools/addSchool/{{stateId}}">Add New School</a>
+</li>

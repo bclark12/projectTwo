@@ -1,4 +1,3 @@
-<h1>All States</h1>
 <nav>
     <a href="/main">Home</a>
     <a href="/states">View All States</a>
@@ -9,7 +8,7 @@
     <a href="/schools/chooseStateForSchools">See Schools By State</a>
     <a href="/teams/chooseStateForTeams">Choose Team By state</a>
 </nav>
-<div class="container">
+<h4>All States</h4>
 <table class="table">
   <tr>
     <th></th>
@@ -18,6 +17,7 @@
     <th>Population</th>
     <th>Higher Education Rank</th>
     <th>Schools</th>
+    <th></th>
   </tr>
   {{#each statesInDB}}
   <tr>
@@ -33,9 +33,9 @@
   </tr>
   {{/each}}
 </table>
-</div>
+
 <ul>
-<a href="/states/addState">Add New State</a>
+<li><a href="/states/addState">Add New State</a></li>
 </ul>
 <form method="POST" action="/states/?_method=DELETE">
     <input type="submit" value="Delete Noname States"/>

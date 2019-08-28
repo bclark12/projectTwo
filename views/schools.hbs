@@ -1,4 +1,3 @@
-<h1>{{stateInDB.state}} Schools</h1>
 <nav>
     <a href="/main">Home</a>
     <a href="/states">View All States</a>
@@ -9,6 +8,7 @@
     <a href="/schools/chooseStateForSchools">See Schools By State</a>
     <a href="/teams/chooseStateForTeams">Choose Team By state</a>
 </nav>
+<h4>{{stateInDB.state}} Schools</h4>
 <table class="table">
     <tr>
         <th></th>
@@ -29,9 +29,10 @@
     </tr>
     {{/each}}
 </table>
-
+<li>
 <a href="/schools/addSchool/{{stateInDB._id}}">Add New School</a>
-<form method="POST" action="/schools/?_method=DELETE">
+</li>
+    <form method="POST" action="/schools/?_method=DELETE">
     <input type="submit" value="Delete Noname Schools"/>
 </form>
 
