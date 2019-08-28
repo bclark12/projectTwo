@@ -9,11 +9,13 @@
     <a href="/schools/chooseStateForSchools">See Schools By State</a>
     <a href="/teams/chooseStateForTeams">Choose Team By state</a>
 </nav>
-<ul>
+<table>
     {{#each matchingSchools}}
-    <li><a href="/teams/{{_id}}">{{name}}</a></li>
+    <tr>
+        <td class="choose"><a href="/teams/{{_id}}">{{name}}</a></td>
+    </tr>
     {{/each}}
-</ul>
+</table>
 
 
 <a href="/schools/addSchool/{{singleState._id}}">Add School</a>

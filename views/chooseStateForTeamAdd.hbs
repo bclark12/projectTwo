@@ -9,9 +9,11 @@
     <a href="/teams/chooseStateForTeams">Choose Team By state</a>
 </nav>
 <h1>Choose State For Add Team</h1>
-<ul>
+<table>
     {{#each statesInDB}}
-    <li><a href="/teams/chooseSchoolForTeamAdd/{{_id}}">{{state}}</a></li>
+    <tr>
+        <td class="choose"><a href="/teams/chooseSchoolForTeamAdd/{{_id}}">{{state}}</a></td>
+    </tr>
     {{/each}}
-</ul>
+</table>
 <a href="/states/addState">Add New State</a>
