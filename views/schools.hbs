@@ -29,9 +29,10 @@
     </tr>
     {{/each}}
 </table>
-
+<li>
 <a href="/schools/addSchool/{{stateInDB._id}}">Add New School</a>
-<form method="POST" action="/schools/?_method=DELETE">
+</li>
+    <form method="POST" action="/schools/?_method=DELETE">
     <input type="submit" value="Delete Noname Schools"/>
 </form>
 

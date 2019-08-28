@@ -73,17 +73,23 @@ a:hover {
 .homeAnchor:hover {
     background: rgb(80,80,80)
 }
-.choose {
-    display: flex;
-    height: 50px;
+tr {
     justify-content: center;
 }
+.choose {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    height: 30px;
+}
 
-.table {
+table {
     text-align: center;
     border-spacing: 30px 10px;
-    border: 3px gray solid;
+    border: 2px gray solid;
     width: 100%;
+
 
 }
 #stateHeader {
